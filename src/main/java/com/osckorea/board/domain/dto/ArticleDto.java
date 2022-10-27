@@ -1,6 +1,6 @@
-package com.osckorea.board.dto;
+package com.osckorea.board.domain.dto;
 
-import com.osckorea.board.entity.Article;
+import com.osckorea.board.domain.entity.Article;
 
 import lombok.AllArgsConstructor;
 import lombok.ToString;

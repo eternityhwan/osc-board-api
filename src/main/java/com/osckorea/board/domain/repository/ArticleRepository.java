@@ -1,6 +1,6 @@
-package com.osckorea.board.repository;
+package com.osckorea.board.domain.repository;
 
-import com.osckorea.board.entity.Article;
+import com.osckorea.board.domain.entity.Article;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

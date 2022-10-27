@@ -1,7 +1,7 @@
-package com.osckorea.board.api;
+package com.osckorea.board.controller;
 
-import com.osckorea.board.dto.ArticleDto;
-import com.osckorea.board.entity.Article;
+import com.osckorea.board.domain.dto.ArticleDto;
+import com.osckorea.board.domain.entity.Article;
 import com.osckorea.board.service.ArticleService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

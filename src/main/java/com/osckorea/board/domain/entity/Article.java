@@ -1,4 +1,4 @@
-package com.osckorea.board.entity;
+package com.osckorea.board.domain.entity;
 
 import javax.persistence.*;
 

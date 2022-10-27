@@ -1,8 +1,8 @@
 package com.osckorea.board.service;
 
-import com.osckorea.board.dto.ArticleDto;
-import com.osckorea.board.entity.Article;
-import com.osckorea.board.repository.ArticleRepository;
+import com.osckorea.board.domain.dto.ArticleDto;
+import com.osckorea.board.domain.entity.Article;
+import com.osckorea.board.domain.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
