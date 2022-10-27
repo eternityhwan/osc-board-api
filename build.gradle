@@ -1,0 +1,48 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.7'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+}
+
+group = 'com.osckorea'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	// WEBCLIENT 디펜던시 추가
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	// DB 암호화 라이브러리 jasypt
+	implementation group: 'com.github.ulisesbocchio', name: 'jasypt-spring-boot-starter', version: '3.0.3'
+
+	// PostgresSQL 드라이버 추가
+	// runtimeOnly 'org.postgresql:postgresql'
+	// MYSQL DRIVER 추가
+	runtimeOnly 'mysql:mysql-connector-java'
+
+	// swagger-ui(OpenApi)
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.11'
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-mustache'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

@@ -1,0 +1,22 @@
+<!------ - {{>}}는 현재 머스테치 파일을 기준으로 다른 파일을 가져옵니다. ---->
+{{>layouts/header}}
+
+{{#article}}
+<form class="container" action="/articles/update" method="post">
+  <input name="id" type="hidden" value="{{id}}" />
+  <div class="mb-3">
+    <label class="form-label">제목</label>
+    <input type="text" class="form-control" value="{{title}}" name="title">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">내용</label>
+    <!--- name 속성안에 Dto의 필드명을 써주면 된다 -->
+    <textarea class="form-control" rows="3" name="content">{{content}}</textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <a href="/articles/{{id}}">back</a>
+</form>
+{{/article}}
+
+
+{{>layouts/footer}}
