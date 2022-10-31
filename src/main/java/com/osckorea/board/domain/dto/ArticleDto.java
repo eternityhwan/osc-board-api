@@ -12,11 +12,10 @@ public class ArticleDto {
     private Long id;
     private String title;
     private String content;
-    
+
+    // Dto를 Entity로 반환해주는 메서드.
     public Article toEntity() {
         return new Article(id, title, content);
-        // Entity 클래스의 객체 Article 선언
-        // id 값은 null을 주고 dto를 그대로 가져온다.
     }
 }
 

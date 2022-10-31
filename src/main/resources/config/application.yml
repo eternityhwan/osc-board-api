@@ -1,16 +1,22 @@
+#############
+### 공통
+##############
+
+#spring:
+#  application:
+#    name: edin-fe
+#
+#  profiles:
+#    active: local
+
 # MySQL8 설정
 spring:
   datasource :
     driver-class-name : com.mysql.cj.jdbc.Driver
     # AWS DB 연결용
-    #url: ENC(TNWd0a695QHo3kVGfM38nx092Hx/u1n8TyDyNgP/WTWQ0h3h+HTV299JgpKKVlZn8f/NVwnXmQVN64da81lE4EGXv9qHgCRtj9/dhRlpFF+VtA+Ks8imNcaBXt5KThb0JqQuAOcoPZ4D7I+aohcWQuE1IJ5mOePolvCOMLxhYSKGn++77jdjsYwADAMWHXbZeRWoOI/CbLM=)
-    #username: ENC(mNmhKjCACY10khaXSzlDPw==)
-    #password: ENC(s45rHrvYh3PvvjP1mOfxszoDaiaqwDM3)
-
-    # VM DB 연결용
-    url: jdbc:mysql://192.168.0.136:3306/oscboard?serverTimezone=Asia/Seoul
-    username: root
-    password: admin
+    url: ENC(TNWd0a695QHo3kVGfM38nx092Hx/u1n8TyDyNgP/WTWQ0h3h+HTV299JgpKKVlZn8f/NVwnXmQVN64da81lE4EGXv9qHgCRtj9/dhRlpFF+VtA+Ks8imNcaBXt5KThb0JqQuAOcoPZ4D7I+aohcWQuE1IJ5mOePolvCOMLxhYSKGn++77jdjsYwADAMWHXbZeRWoOI/CbLM=)
+    username: ENC(mNmhKjCACY10khaXSzlDPw==)
+    password: ENC(s45rHrvYh3PvvjP1mOfxszoDaiaqwDM3)
 
 # 콘솔에 SQL 출력 여부
   jpa:
@@ -36,13 +42,4 @@ springdoc:
     path: /swagger-ui.html
     disable-swagger-default-url: true
     display-query-params-without-oauth2: true
-
-# PostgreSQL 연동
-# spring.datasource.url=jdbc:postgresql://localhost:5432/DB이름
-# spring.datasource.username=postgresql_사용자명
-# spring.datasource.password=postgresSql_비밀번호
-
-# spring.datasource.data=classpath:/data.sql
-# spring.datasource.initializaion-mode=always
-# spring.jpa.hibernate.ddl-auto=create-drop
 

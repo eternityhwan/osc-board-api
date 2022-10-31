@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: board-api
+  namespace: api
+spec:
+  selector:
+    matchLabels:
+      app: board-api
+  template:
+    metadata:
+      labels:
+        app: board-api
+    spec:
+      containers:
+        - name: board-api
+          image: mirrorkyh/osc-board-api:v1
+          ports:
+            - name: http
+              containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: board-api-svc
+  namespace: api
+spec:
+  selector:
+    app: board-api
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: http

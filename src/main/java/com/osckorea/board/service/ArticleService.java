@@ -16,12 +16,11 @@ import java.util.stream.Collectors;
 public class ArticleService {
 
     // 서비스계층, 레스트컨트롤러와 레파지토리 사이의 계층
-    // 트랜잭션 -- 모두 성공되어야하는 일련의 과정
 
-    @Autowired // 의존성 주입
+    @Autowired // 의존성 주입(외부에서 가져온다)
     private ArticleRepository articleRepository;
 
-    // get all
+    // get all // 반환을 리스트로 해야하니까 List<> 반환타입 Article을 감쌈.
     public List<Article> index() {
         return articleRepository.findAll();
     }
@@ -45,7 +44,7 @@ public class ArticleService {
     }
 
 
-    public Article revision(Long id, ArticleDto dto) {
+    public Article update(Long id, ArticleDto dto) {
         //  1. 수정용 엔티티 생성
         Article article = dto.toEntity();
         log.info("id: {}, article: {}", id, article.toString());
@@ -78,27 +77,5 @@ public class ArticleService {
         // 2. 대상 삭제
         articleRepository.delete(targetEntity);
         return targetEntity;
-    }
-
-    @Transactional // 해당 메소드를 트랜잭션으로 묶는다.
-                    // 진행하다 실패하면 메소드가 실행하기 전 상태로 롤백한다.
-    public List<Article> createArticles(List<ArticleDto> dtos) {
-        // dto 묶음을 entity 묶음으로 변환
-        List<Article> articleEntityList = dtos.stream()
-                .map(dto -> dto.toEntity())
-                .collect(Collectors.toList());
-
-        // entity 묶음을 DB로 저장
-        articleEntityList.stream()
-                // forEach 하나하나 반복한다
-                .forEach(article -> articleRepository.save(article));
-
-        // 강제 예외 발생시킨다
-        articleRepository.findById(-1L).orElseThrow(
-                () -> new IllegalArgumentException("결제 실패")
-        );
-
-        // 결과값 반환
-        return null;
     }
 }

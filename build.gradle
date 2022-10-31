@@ -20,14 +20,9 @@ repositories {
 
 dependencies {
 
-	// WEBCLIENT 디펜던시 추가
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-
 	// DB 암호화 라이브러리 jasypt
 	implementation group: 'com.github.ulisesbocchio', name: 'jasypt-spring-boot-starter', version: '3.0.3'
 
-	// PostgresSQL 드라이버 추가
-	// runtimeOnly 'org.postgresql:postgresql'
 	// MYSQL DRIVER 추가
 	runtimeOnly 'mysql:mysql-connector-java'
 
@@ -37,9 +32,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-mustache'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
 
+	// Lombok 추가
+	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
