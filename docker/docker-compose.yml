@@ -7,7 +7,7 @@ services:
     ports:
       - 3306:3306 # HOST:CONTAINER
     environment:
-      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: 1q2w3e4r
       MYSQL_DATABASE: oscboard
     command:
       - --character-set-server=utf8mb4

@@ -3,9 +3,10 @@
 ##############
 
 #spring:
-#  application:
-#    name: edin-fe
-#
+#  profiles:
+#    active:
+
+# 로컬에서 돌릴 때
 #  profiles:
 #    active: local
 

@@ -15,6 +15,10 @@
 //
 //    @Test
 //    void jasypt() {
+//            String url = "jdbc:mysql://ec2-3-38-111-117.ap-northeast-2.compute.amazonaws.com:3306/oscboard?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC";
+//                String username = "root";
+//                String password = "1q2w3e4r";
+//                }
 
 //        System.out.println(jasyptEncoding(url));
 //        System.out.println("-----------------------------------");
