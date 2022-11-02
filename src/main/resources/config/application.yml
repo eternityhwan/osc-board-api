@@ -4,14 +4,14 @@
 
 #spring:
 #  profiles:
-#    active:
-
-# 로컬에서 돌릴 때
-#  profiles:
-#    active: local
+#    active: dev
 
 # MySQL8 설정
 spring:
+  #로컬에서 돌릴 때
+  profiles:
+    active: local
+
   datasource :
     driver-class-name : com.mysql.cj.jdbc.Driver
     # AWS DB 연결용
@@ -25,7 +25,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
 # hibernate 설정
     database : mysql
-    hibernate.ddl-auto : update
+    hibernate.ddl-auto : create
     hibernate.naming.strategy : org.hibernate.cfg.ImprovedNamingStrategy
     hibernate.naming.physical-strategy : org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     generate-ddl : false
