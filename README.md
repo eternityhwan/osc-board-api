@@ -33,3 +33,10 @@ API 명세서
 6. /api/boardsD/{id}
  - method : 'delete'
  - Description : 글 삭제 기능
+
+--- k8s secret ---
+# make secret
+kubectl -n db create secret generic mysql \
+--from-literal=root.password="3642" \
+--from-literal=user.name="hwan" \
+--from-literal=user.password="3642"
