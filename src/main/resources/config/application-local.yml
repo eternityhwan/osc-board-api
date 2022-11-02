@@ -3,6 +3,6 @@ spring:
   datasource :
     driver-class-name : com.mysql.cj.jdbc.Driver
    # local Mysql
-    url: jdbc:mysql://mysql-svc.db/oscboard?serverTimezone=Asia/SeoulcharacterEncoding=UTF-8
+    url: jdbc:mysql://mysql-svc.db/oscboard?serverTimezone=Asia/Seoul?characterEncoding=UTF-8
     username: root
     password: 3642
