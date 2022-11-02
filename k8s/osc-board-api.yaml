@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: board-api
-          image: mirrorkyh/osc-board-api:local
+          image: mirrorkyh/osc-board-api:v1
           ports:
             - name: http
               containerPort: 8080

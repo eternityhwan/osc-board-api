@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController // RestAPI 용 컨트롤러, 데이터(json)를 변환
 @Slf4j
-@RequestMapping(value = "/api") // /api 가 모든 url에 공통
+@RequestMapping(value = "/api/boards") // /api 가 모든 url에 공통
 @Tag(name = "Board API", description = "OSC KOREA BOARD API")
 public class BoardApiController {
 
@@ -22,14 +22,14 @@ public class BoardApiController {
     private ArticleService articleService;
 
     // FinAll Get
-    @GetMapping(value = "/boards")
+    @GetMapping(value = "")
     @Operation(summary = "글 리스트 출력", description = "테이블에 있는 모든 데이터를 출력")
     public List<Article> index() {
         return articleService.index();
     }
 
     // Get by id
-    @GetMapping(value = "/boards/{id}")
+    @GetMapping(value = "/{id}")
     @Operation(summary = " 개별 글 출력", description = "테이블에 있는 개별 데이터를 출력")
     public Article findArticle(@PathVariable Long id) {
         return articleService.findArticle(id);
@@ -37,7 +37,7 @@ public class BoardApiController {
 
     // POST
     // @RequsestBody로 Dto 클래스를 받는다
-    @PostMapping(value = "/boards/posts")
+    @PostMapping(value = "/posts")
     @Operation(summary = "글 추가", description = "테이블에 데이터를 추가")
     public ResponseEntity<Article> createArticle(@RequestBody ArticleDto dto) {
         Article posts = articleService.createArticle(dto);
@@ -46,8 +46,8 @@ public class BoardApiController {
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
-    // PATCH
-    @PatchMapping(value = "/boardsR/{id}")
+    // Put
+    @PutMapping(value = "/{id}")
     @Operation(summary = "개별 글 수정", description = "개별 데이터를 수정")
     public ResponseEntity<Article> update(
             @PathVariable Long id,
@@ -65,7 +65,7 @@ public class BoardApiController {
     }
 
     // DELETE
-    @DeleteMapping(value = "/boardsD/{id}")
+    @DeleteMapping(value = "/{id}")
     @Operation(summary = "데이터 삭제", description = "개별 데이터 삭제")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         Article deleted = articleService.delete(id);
