@@ -6,19 +6,24 @@
 #  profiles:
 #    active: dev
 
+# local Mysql // mysql 8 버전은 외부에서 붙이는 방법 따로있다.
+# kubectl portforward로 빼면 localhost:3306으로 붙을 수 있다.
+# DB는 도커-컴포즈로 설치, k8s 금지
+# local Mysql // mysql 8 버전은 외부에서 붙이는 방법 따로있다.// kubectl portforward로 빼면 localhost:3306으로 붙을 수 있다.
+# DB는 도커-컴포즈로 설치, k8s 금지
+
+
+#로컬(kubernetes)에서 돌릴 때
+#  profiles:
+#    active: k8s
 # MySQL8 설정
 spring:
-  #로컬(kubernetes)에서 돌릴 때
-#  profiles:
-#    active: local
-
-  datasource :
+  datasource:
     driver-class-name : com.mysql.cj.jdbc.Driver
-      # local Mysql // mysql 8 버전은 외부에서 붙이는 방법 따로있다.// kubectl portforward로 빼면 localhost:3306으로 붙을 수 있다.
-      # DB는 도커-컴포즈로 설치, k8s 금지
-    url: jdbc:mysql://mysql-svc.db.svc.cluster.local:3306/oscboard?serverTimezone=Asia/Seoul?characterEncoding=UTF-8
+    url: jdbc:mysql://host.docker.internal:3306/oscboard?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    url: jdbc:mysql://host.docker.internal:3306/oscboard?serverTimezone=Asia/Seoul?characterEncoding=UTF-8
     username: root
-    password: 3642
+    password: 1q2w3e4r
 
 
 # 콘솔에 SQL 출력 여부
@@ -27,7 +32,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
 # hibernate 설정
     database : mysql
-    hibernate.ddl-auto : create
+    hibernate.ddl-auto : update
     hibernate.naming.strategy : org.hibernate.cfg.ImprovedNamingStrategy
     hibernate.naming.physical-strategy : org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     generate-ddl : false

@@ -1,0 +1,11 @@
+#spring:
+#  #로컬(kubernetes)에서 돌릴 때
+  #  profiles:
+  #    active: local
+
+#  datasource :
+#    driver-class-name : com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://mysql-svc.db.svc.cluster.local:3306/oscboard?serverTimezone=Asia/Seoul?characterEncoding=UTF-8
+#    username: root
+#    password: 3642
+#
