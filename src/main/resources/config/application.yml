@@ -20,8 +20,11 @@
 spring:
   datasource:
     driver-class-name : com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://host.docker.internal:3306/oscboard?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-#    url: jdbc:mysql://host.docker.internal:3306/oscboard?serverTimezone=Asia/Seoul?characterEncoding=UTF-8
+#    url: jdbc:mysql://host.docker.internal:3306/oscboard?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    # 아래처럼 로칼 호스트 쓰면 k8s로 띄웠을 때 로컬의 띄운 도커 mysql을 못봐
+#    url: jdbc:mysql://localhost:3306/oscboard?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    # k3d 환경에서 기동
+    url: jdbc:mysql://host.k3d.internal:3306/oscboard?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
     password: 1q2w3e4r
 
