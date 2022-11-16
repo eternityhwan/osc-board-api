@@ -6,8 +6,13 @@ metadata:
   annotations: {}
 build:
   artifacts:
-    - image: mirrorkyh/osc-board-api  # 빌드 이미지
+    - image: docker.io/mirrorkyh/osc-board-api  # 빌드 이미지
      # context: .                      # 아티팩트 소스가 포함된 디렉토리
       #ckerfile: Dockerfile
-      jib: {}                  # Maven Plugin, 도커 이미지 생성
-#
+      jib:  # Maven Plugin, 도커 이미지 생성
+        args:
+          - -DskipTests
+deploy:
+  kubectl:
+    manifests:
+      - k8s/osc-board-api.yaml
