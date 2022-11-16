@@ -1,18 +1,22 @@
-apiVersion: skaffold/v2beta21
+apiVersion: skaffold/v2beta18
 kind: Config
 metadata:
   name: osc-board-skaffold
-  labels: {}
-  annotations: {}
+  # labels: {}
+  # annotations: {}
 build:
+  local:
+    push: true
   artifacts:
     - image: docker.io/mirrorkyh/osc-board-api  # 빌드 이미지
-     # context: .                      # 아티팩트 소스가 포함된 디렉토리
-      #ckerfile: Dockerfile
-      jib:  # Maven Plugin, 도커 이미지 생성
+      jib:
         args:
           - -DskipTests
+        fromImage: docker.io/library/openjdk:11.0.11-jre  # Maven Plugin, 도커 이미지 생성
 deploy:
-  kubectl:
-    manifests:
-      - k8s/osc-board-api.yaml
+   kubectl:
+     manifests:
+       - k8s/osc-board-api.yaml
+   kustomize:
+     paths:
+       - k8s/base
