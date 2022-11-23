@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: board-api
-          image: mirrorkyh/osc-board-api:v7
+          image: mirrorkyh/osc-board-api:jenkinsTest
           ports:
             - name: http
               containerPort: 8080
