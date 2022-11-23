@@ -9,7 +9,7 @@ pipeline {
     }
 
     stages {
-        stage ('github clone') {
+        stage ('Github clone') {
             steps {
                 git branch: '${BRANCH}',
                 credentialsId: 'hwan-git-credential',
@@ -88,7 +88,7 @@ pipeline {
                      }
              }
 
-            stage ('git push') {
+            stage ('CD Stage git push') {
                   steps {
                       script {
                  withCredentials([usernamePassword(
