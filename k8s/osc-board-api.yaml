@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/blue
 kind: Deployment
 metadata:
   name: board-api
@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
         - name: board-api
-          image: mirrorkyh/osc-board-api:v1
+          image: mirrorkyh/osc-board-api:blue
           ports:
             - name: http
               containerPort: 8080
 ---
-apiVersion: v1
+apiVersion: blue
 kind: Service
 metadata:
   name: board-api-svc
