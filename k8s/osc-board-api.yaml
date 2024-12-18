@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
         - name: board-api
-          image: mirrorkyh/osc-board-api:v0.1
+          image: ""
           ports:
             - name: http
               containerPort: 8080
   containers:
-    - image: v0.2
+    - image: ""
 ---
 apiVersion: green
 kind: Service
@@ -34,4 +34,4 @@ spec:
       port: 8080
       targetPort: http
   containers:
-    - image: v0.2
+    - image: ""
