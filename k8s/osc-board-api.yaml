@@ -18,6 +18,8 @@ spec:
           ports:
             - name: http
               containerPort: 8080
+  containers:
+    - image: v0.2
 ---
 apiVersion: green
 kind: Service
@@ -31,3 +33,5 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: http
+  containers:
+    - image: v0.2
