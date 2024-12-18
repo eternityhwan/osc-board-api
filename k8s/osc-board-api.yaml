@@ -14,24 +14,7 @@ spec:
     spec:
       containers:
         - name: board-api
-          image: ""
+          image: registry.a.ocp.local:5000/openshift4/hwan-api:v0.3
           ports:
             - name: http
               containerPort: 8080
-  containers:
-    - image: ""
----
-apiVersion: green
-kind: Service
-metadata:
-  name: board-api-svc
-  namespace: api
-spec:
-  selector:
-    app: board-api
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: http
-  containers:
-    - image: ""
