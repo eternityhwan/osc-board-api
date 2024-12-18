@@ -19,3 +19,5 @@ spec:
         image: docker.io/nginx:1.14.2
         ports:
         - containerPort: 80
+      serviceAccount: nginx
+      serviceAccountName: nginx
